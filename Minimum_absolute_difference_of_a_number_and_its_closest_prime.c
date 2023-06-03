@@ -1,48 +1,69 @@
 #include<stdio.h>
-int main()
-{
-    int n,pre,post,i;
-    scanf("%d",&n);
-    int m=n;
-    while(m>0)
-    {
-        for(i=2;i<=m;i++)
-        {
-            if(m%i==0)
-            {
+
+int prime(int x) {
+    int i, c = 0, mm = 0;
+    for (i = 1; i <= x; i++) {
+        if (x % i == 0) {
+            c = c + 1;
+        }
+    }
+    if (c == 2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int absolute(int x) {
+    if (x < 0) {
+        return -x;
+    } else {
+        return x;
+    }
+}
+
+int main() {
+    int n, i, res, d1 = 0, d2 = 0, np = 0, ap, aa, bb = 0, cc, m = 0;
+    scanf("%d", &n);
+    
+    for (cc = 1; cc <= n; cc++) {
+        if (n % cc == 0) {
+            bb++;
+        }
+    }
+    
+    if (bb == 2) {
+        m = 1;
+    }
+    
+    if (m == 0) {
+        for (i = n - 1;; i--) {
+            if (prime(i)) {
+                np = i;
                 break;
             }
         }
-        if(m==i)
-        {
-            pre=m;
-            break;
-        }
-        else
-        m--;
-    }
-    int s=n;
-    while(s>0)
-    {
-        for(i=2;i<=s;i++)
-        {
-            if(s%i==0)
-            {
-                post=s;
+        
+        for (i = n + 1;; i++) {
+            if (prime(i)) {
+                ap = i;
                 break;
             }
         }
-        if(s==i)
-        {
-            break;
+        
+        d1 = n - np;
+        d2 = ap - n;
+        
+        if (d1 < d2) {
+            aa = absolute(n - np);
+            printf("%d", aa);
+        } else {
+            aa = absolute(n - ap);
+            printf("%d", aa);
         }
-        else
-        {
-            s++;
-        }
+    } else {
+        printf("0");
     }
-    if(n-pre<post-n)
-    printf("%d",n-pre);
-    else
-    printf("%d",post-n);
+    
+    return 0;
 }
