@@ -28,7 +28,6 @@ int main()
 		{
 			np=i;
 			//printf("%d
-",np);
 			break;
 		}
 	}
@@ -37,26 +36,24 @@ int main()
 	    if(prime(i))
 		{
 			ap=i;
-		//	printf("%d
-",ap);
+		//	printf("%d",ap);
 			break;
 		}
 	}
 	d1=n-np;
 	d2=ap-n;
-
+//	printf("%d-",d1);
+//	printf("%d+",d2);
 	if(d1==d2)                                                                                                   
 	{
 		printf("%d %d",np,ap);
 	}
 	else if(d1<d2)
 	{
-		printf("%d
-",np);
+		printf("%d",np);
 	}
 	else
 	{
-	printf("%d
-",ap);
+	printf("%d",ap);
     }
-}
+} 
